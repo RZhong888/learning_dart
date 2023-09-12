@@ -5,6 +5,9 @@ import 'Booleans.dart';
 import 'Lists.dart';
 import 'Sets.dart';
 import 'Maps.dart';
+import 'Functions.dart';
+import 'Operators.dart';
+import 'Clazz.dart';
 
 void main() {
   // const number = 31;
@@ -29,7 +32,16 @@ void main() {
   // useSets();
 
   //Map的使用
-  useMaps();
+  // useMaps();
+
+  //函数的使用
+  // useFunctions();
+
+  //使用表达式
+  // useOperators();
+
+  //使用类
+  useClazz();
 }
 
 int plusNumber() {
