@@ -128,6 +128,84 @@ class EffectiveDoer extends DoerTwo {
   }
 }
 
+//接口的使用。Dart中，接口的使用比较特殊，Dart为每个类隐式的实现了接口，意思就是直接使用 implements 实现类即可，被实现类会集成接口的成员变量和函数定义。
+class InterfaceOne {
+  void printMessage() => null;
+}
+
+abstract class InterfaceTwo {
+  void printMessage();
+}
+
+class ImplementOne implements InterfaceOne {
+  String get name => "Hello";
+  num get age => 18;
+
+  void printMessage() {
+    print("ImplementOne name: $name age: $age");
+  }
+}
+
+class ImplementTwo implements InterfaceOne {
+  String get name => "World";
+  num get age => 20;
+
+  void printMessage() {
+    print("ImplementTwo name: $name age: $age");
+  }
+}
+
+class ImplementThree implements InterfaceTwo {
+  String get name => "Hello World!";
+  num get age => 20;
+
+  void printMessage() {
+    print("ImplementThree name: $name age: $age");
+  }
+}
+
+//类的继承以及函数重写
+class Parent {
+  void printMessage() {
+    print("message: parent");
+  }
+}
+
+class Child extends Parent {
+  @override
+  void printMessage() {
+    print("message: child");
+  }
+}
+
+//枚举的定义和使用
+enum Color {
+  red, green, blue
+}
+
+//Mixin类的使用与定义，这个是大神理解的Mixin机制的使用场景：https://zhuanlan.zhihu.com/p/67831976
+mixin Musical {
+  bool canPlayPiano = false;
+  bool canCompose = false;
+  bool canConduct = false;
+
+  void entertainMe() {
+    if (canPlayPiano) {
+      print('Playing piano');
+    } else if (canConduct) {
+      print('Waving hands');
+    } else {
+      print('Humming to self');
+    }
+  }
+}
+
+class Musician with Musical {
+  Musician() {
+    canConduct = true;
+  }
+}
+
 void useClazz() {
   //构造函数的定义及其使用
 
@@ -201,5 +279,48 @@ void useClazz() {
   var ve = EffectiveDoer();
   ve.doSomething();
   ve.doSome();
+
+  //接口的使用
+  InterfaceOne i1 = ImplementOne();
+  i1.printMessage();
+  InterfaceOne i2 = ImplementTwo();
+  i2.printMessage();
+  InterfaceTwo i3 = ImplementThree();
+  i3.printMessage();
+
+  //类的继承以及重写函数
+  var parent1 = Parent();
+  var child1 = Child();
+  Parent parent2 = Child();
+  parent1.printMessage();
+  child1.printMessage();
+  parent2.printMessage();
+
+  /**
+   * 枚举的使用。在Dart中，枚举的使用有以下限制：
+   * - 枚举不能被子类化，混合或实现。
+   * - 枚举不能被显式实例化。
+   * */
+  print("color - red's index: ${Color.red.index}");
+  print("color - green's index: ${Color.green.index}");
+  print("color - blue's index: ${Color.blue.index}");
+
+  var color = Color.red;
+  print("color's runtype: ${color.runtimeType}");
+  switch(color) {
+    case Color.red:
+      print("red");
+      break;
+    case Color.blue:
+      print("red");
+      break;
+    default:
+      print("green");
+      break;
+  }
+
+  //Mixin机制的使用
+  Musician musician = Musician();
+  musician.entertainMe();
 }
 
