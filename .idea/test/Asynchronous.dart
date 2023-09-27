@@ -10,7 +10,7 @@ void useAsynchronous() {
   // _streamState();
   // _useBroadcase();
   // _blockRun();
-  _defineAsynchronousFunc();
+  // _defineAsynchronousFunc();
 }
 
 //测试使用Dart中的异步底层 - 事件机制。由于Dart是单线程语言，所以Dart中的异步是通过队列机制实现的。

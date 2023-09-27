@@ -12,6 +12,7 @@ import 'Generics.dart';
 import 'dart:io';
 import 'dart:isolate';
 import 'Asynchronous.dart';
+import 'Streams.dart';
 
 void main() {
   // const number = 31;
@@ -50,8 +51,11 @@ void main() {
   //使用泛型
   //useGenerics();
 
-  //使用异步
-  useAsynchronous();
+  //使用异步 - Future
+  //useAsynchronous();
+
+  //使用异步 - Stream
+  useStream();
 }
 
 int plusNumber() {
