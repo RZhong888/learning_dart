@@ -13,6 +13,8 @@ import 'dart:io';
 import 'dart:isolate';
 import 'Asynchronous.dart';
 import 'Streams.dart';
+import 'Generater.dart';
+import 'Isolates.dart';
 
 void main() {
   // const number = 31;
@@ -55,7 +57,13 @@ void main() {
   //useAsynchronous();
 
   //使用异步 - Stream
-  useStream();
+  //useStream();
+
+  //使用生成器
+  //useGenerator();
+
+  //使用Isolate
+  useIsolate();
 }
 
 int plusNumber() {
