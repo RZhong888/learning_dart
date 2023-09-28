@@ -15,6 +15,7 @@ import 'Asynchronous.dart';
 import 'Streams.dart';
 import 'Generater.dart';
 import 'Isolates.dart';
+import 'Typedef.dart';
 
 void main() {
   // const number = 31;
@@ -63,7 +64,10 @@ void main() {
   //useGenerator();
 
   //使用Isolate
-  useIsolate();
+  //useIsolate();
+
+  //使用Typedef
+  //useTypedef();
 }
 
 int plusNumber() {
